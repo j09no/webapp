@@ -1,20 +1,12 @@
 
 {
   "version": 2,
-  "env": {
-    "NODE_ENV": "production"
-  },
   "buildCommand": "npm run build",
   "outputDirectory": "dist/public",
-  "functions": {
-    "server/index.ts": {
-      "maxDuration": 30
-    }
-  },
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/server/index.ts"
+      "dest": "/api/index.js"
     },
     {
       "handle": "filesystem"
@@ -23,5 +15,8 @@
       "src": "/(.*)",
       "dest": "/dist/public/index.html"
     }
-  ]
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
 }
